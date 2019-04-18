@@ -8,11 +8,34 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href="index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
-    <script src="index.js"></script>
+    <script src="UserController.js"></script>
+    <script src="UserService.js"></script>
+    <!--    <script src="index.js"></script>-->
 </head>
 <body>
 <div class="" ng-app="myApp" ng-controller="ctrol">
-    <div class="" ng-bind="firstName"></div>
+    <table>
+        <tr>
+            <td width="100">ID:</td>
+            <td><input type="text" id="id" ng-model="user.id" /></td>
+        </tr>
+        <tr>
+            <td width="100">Name:</td>
+            <td><input type="text" id="name" ng-model="user.name" /></td>
+        </tr>
+        <tr>
+            <td width="100">Age:</td>
+            <td><input type="text" id="age" ng-model="user.email" /></td>
+        </tr>
+    </table>
+    <a ng-click="getUser(user.id)">Get User</a>
+    <a ng-click="updateUser(user.id,user.name,user.email)">Update User</a>
+    <a ng-click="addUser(user.name,user.email)">Add User</a>
+    <a ng-click="deleteUser(user.id)">Delete User</a>
+    <a ng-click="getAllUsers()">Get all Users</a><br/><br/>
+    <div ng-repeat="usr in users">
+        {{usr.name}} {{usr.email}}
+    </div>
 </div>
 </body>
 </html>
